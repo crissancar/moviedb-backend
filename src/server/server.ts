@@ -1,7 +1,7 @@
 import express from 'express';
 import * as http from 'http';
 import Logger from '../config/logger/Logger';
-import WinstonLogger from '../config/logger/winston/WinstonLogger';
+import container from '../config/dependency-injection/awilix/awilix.config';
 
 export class Server {
   private express: express.Express;
@@ -13,7 +13,7 @@ export class Server {
     this.port = port;
     this.express = express();
     this.express.use(express.json());
-    this.logger = new WinstonLogger();
+    this.logger = container.resolve('logger');
   }
 
   async listen(): Promise<void> {
