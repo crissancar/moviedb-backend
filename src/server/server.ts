@@ -1,7 +1,10 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import * as http from 'http';
 import Logger from '../config/logger/Logger';
 import container from '../config/dependency-injection/awilix/awilix.config';
+import { registerRoutes } from '../config/router';
+import Router from 'express-promise-router';
+import httpStatus from 'http-status';
 
 export class Server {
   private express: express.Express;
@@ -14,6 +17,15 @@ export class Server {
     this.express = express();
     this.express.use(express.json());
     this.logger = container.resolve('logger');
+    const router = Router();
+    this.express.use(router);
+
+    registerRoutes(router);
+
+    router.use((err: Error, req: Request, res: Response, next: Function) => {
+      this.logger.error(err);
+      res.status(httpStatus.INTERNAL_SERVER_ERROR).send(err.message);
+    });
   }
 
   async listen(): Promise<void> {
