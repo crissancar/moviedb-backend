@@ -9,7 +9,9 @@
     "build:tsc": "tsc -p tsconfig.prod.json",
     "dev": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/server/start.ts",
     "lint": "eslint . src --ext .ts",
-    "test": "npm run dev"
+    "test": "npm run test:features",
+    "test:features": "npm run test:moviedb:backend:features",
+    "test:moviedb:backend:features": "NODE_ENV=test cucumber-js -p moviedb_backend"
   },
   "author": "Cristian Sánchez",
   "license": "ISC",
@@ -28,6 +30,8 @@
     "winston": "^3.5.1"
   },
   "devDependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
     "commitizen": "^4.2.4",
@@ -41,6 +45,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
     "prettier": "^2.5.1",
+    "supertest": "^6.2.2",
     "ts-node-dev": "^1.1.8"
   },
   "lint-staged": {
