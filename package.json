@@ -9,6 +9,7 @@
     "build:tsc": "tsc -p tsconfig.prod.json",
     "dev": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/server/start.ts",
     "lint": "eslint . src --ext .ts",
+    "start:moviedb:backend": "NODE_ENV=production node dist/src/server/start",
     "test": "npm run test:features",
     "test:features": "npm run test:moviedb:backend:features",
     "test:moviedb:backend:features": "NODE_ENV=test cucumber-js -p moviedb_backend"
