@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import * as http from 'http';
 import Logger from '../config/logger/Logger';
-import container from '../config/dependency-injection/awilix/awilix.config';
+import container from '../config/dependency-injection';
 import { registerRoutes } from '../config/router';
 import Router from 'express-promise-router';
 import httpStatus from 'http-status';
@@ -16,7 +16,7 @@ export class Server {
     this.port = port;
     this.express = express();
     this.express.use(express.json());
-    this.logger = container.resolve('logger');
+    this.logger = container.get('Shared.Logger');
     const router = Router();
     this.express.use(router);
 

@@ -17,6 +17,7 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "no-unused-vars": "off"
+        "no-unused-vars": "off",
+        "node/no-path-concat": "off"
     }
 }
