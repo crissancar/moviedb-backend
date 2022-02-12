@@ -24,7 +24,7 @@ services:
 
   mongo:
     container_name: 'mongo'
-    image: mongo:3.4.6
+    image: mongo:3.6.0
     networks:
       - moviedb-network
     ports:
