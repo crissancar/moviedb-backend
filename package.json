@@ -4,8 +4,9 @@
   "description": "Backend for MovieDB",
   "main": "src/index.ts",
   "scripts": {
-    "build": "npm run build:clean && npm run build:tsc",
+    "build": "npm run build:clean && npm run build:tsc && npm run build:di",
     "build:clean": "rm -r dist; exit 0",
+    "build:di": "copy 'src/**/*.{json,yaml,html,png}' dist/src",
     "build:tsc": "tsc -p tsconfig.prod.json",
     "dev": "NODE_ENV=dev ts-node-dev --ignore-watch node_modules ./src/server/start.ts",
     "lint": "eslint . src --ext .ts",
@@ -20,6 +21,7 @@
     "@types/express": "^4.17.13",
     "@types/glob": "^7.2.0",
     "@types/node": "^17.0.16",
+    "copy": "^0.3.2",
     "errorhandler": "^1.5.1",
     "express": "^4.17.2",
     "express-promise-router": "^4.1.1",
