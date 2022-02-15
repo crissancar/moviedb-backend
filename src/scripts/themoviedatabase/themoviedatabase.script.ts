@@ -1,8 +1,11 @@
 import { MovieDBBackendApp } from '../../server/MovieDBBackendApp';
-import { TheMovieDatabaseGenresController } from './services/genres/TheMovieDatabaseGenresController';
+import { TheMovieDatabaseGenresController } from './controllers/genres/TheMovieDatabaseGenresController';
+import container from '../../config/dependency-injection';
 
 const application: MovieDBBackendApp = new MovieDBBackendApp();
-const theMovieDatabaseGenresController: TheMovieDatabaseGenresController = new TheMovieDatabaseGenresController();
+const theMovieDatabaseGenresController: TheMovieDatabaseGenresController = container.get(
+  'Genres.controllers.TheMovieDatabaseGenresController'
+);
 
 function status() {
   console.log('themoviedatabase.script');
