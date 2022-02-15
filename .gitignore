@@ -3,4 +3,3 @@ data
 dist
 logs
 node_modules
-src/config/environment/*.json

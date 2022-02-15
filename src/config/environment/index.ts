@@ -1,4 +1,5 @@
 import convict from 'convict';
+import 'dotenv/config';
 
 const moviedbConfig = convict({
   env: {
@@ -12,13 +13,13 @@ const moviedbConfig = convict({
       doc: 'The TMDB access token',
       format: String,
       env: 'TMDB_ACCESS_TOKEN',
-      default: '',
+      default: 'default',
     },
     apiKey: {
       doc: 'The TMDB api key',
       format: String,
       env: 'TMDB_API_KEY',
-      default: '',
+      default: 'default',
     },
   },
 });
