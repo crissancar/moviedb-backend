@@ -18,6 +18,7 @@
     ],
     "rules": {
         "no-unused-vars": "off",
-        "node/no-path-concat": "off"
+        "node/no-path-concat": "off",
+        "no-return-assign": "off"
     }
 }
