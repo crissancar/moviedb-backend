@@ -26,3 +26,7 @@ jobs:
       - name: Run tests
         run: |
           npm test
+        env:
+          credentials: |
+          ${{ secrets.TMDB_API_KEY }}
+          ${{ secrets.TMDB_ACCESS_TOKEN }}
