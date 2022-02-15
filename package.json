@@ -13,7 +13,10 @@
     "start:moviedb:backend": "NODE_ENV=production node dist/src/server/start",
     "test": "npm run test:features",
     "test:features": "npm run test:moviedb:backend:features",
-    "test:moviedb:backend:features": "NODE_ENV=test cucumber-js -p moviedb_backend"
+    "test:moviedb:backend:features": "NODE_ENV=test cucumber-js -p moviedb_backend",
+    "tmdb:all": "npm run tmdb:status && npm run tmdb:genres",
+    "tmdb:status": "npm run build && node -e 'require(\"./dist/src/scripts/themoviedatabase/themoviedatabase.script.js\").status()'",
+    "tmdb:genres": "node -e 'require(\"./dist/src/scripts/themoviedatabase/themoviedatabase.script.js\").run(\"genres\")'"
   },
   "author": "Cristian Sánchez",
   "license": "ISC",
@@ -22,8 +25,10 @@
     "@types/express": "^4.17.13",
     "@types/glob": "^7.2.0",
     "@types/node": "^17.0.16",
+    "axios": "^0.26.0",
     "convict": "^6.2.1",
     "copy": "^0.3.2",
+    "dotenv": "^16.0.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.2",
     "express-promise-router": "^4.1.1",

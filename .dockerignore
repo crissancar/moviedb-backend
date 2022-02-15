@@ -7,4 +7,3 @@ docker-compose.yml
 Dockerfile
 logs
 node_modules
-src/config/environment/*.json
