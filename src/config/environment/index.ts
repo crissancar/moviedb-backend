@@ -1,5 +1,5 @@
 import convict from 'convict';
-import 'dotenv/config';
+import 'dotenv-flow/config';
 
 const moviedbConfig = convict({
   env: {
