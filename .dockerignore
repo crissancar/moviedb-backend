@@ -1,6 +1,7 @@
 .dockerignore
 .env.*
 .git
+.tmp
 data
 dist
 docker-compose.yml
