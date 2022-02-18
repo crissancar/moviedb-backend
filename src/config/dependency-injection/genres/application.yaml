@@ -20,5 +20,5 @@ services:
     arguments: ["@Genre.repositories.GenreRepository"]
 
   Genre.repositories.GenreRepository:
-    class: ../../../modules/genres/repositories/InMemoryGenreRepository
-    arguments: []
+    class: ../../../modules/genres/persistence/mongoose/MongooseGenreRepository
+    arguments: ['@Shared.ConnectionManager']
