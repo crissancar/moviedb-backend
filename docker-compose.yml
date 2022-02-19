@@ -5,7 +5,7 @@ x-app-service: &default-app
   command: ''
   container_name: ''
   environment:
-    - MONGO_URL=mongodb://mongo:27017/dev
+    - MONGO_URL=mongodb://mongo:27017/moviedb-backend-dev
   networks:
     - moviedb-network
   volumes:
