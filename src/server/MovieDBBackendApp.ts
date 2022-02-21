@@ -1,4 +1,3 @@
-import * as http from 'http';
 import { Server } from './server';
 
 export class MovieDBBackendApp {
