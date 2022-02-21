@@ -3,6 +3,7 @@
 # Shell to use for running scripts
 SHELL := $(shell which bash)
 IMAGE_NAME := moviedb/backend
+SERVICE_NAME := moviedb-backend
 MOVIEDB_APP_NAME := moviedb
 
 # Test if the dependencies we need to run this Makefile are installed
@@ -23,6 +24,10 @@ default: build
 # Build image
 build:
 	docker build -t $(IMAGE_NAME):dev .
+
+# Run tests
+test: build
+	docker-compose run --rm $(SERVICE_NAME) bash -c 'npm run build && npm run test'
 
 # Start moviedb backend app
 start-moviedb-backend: build

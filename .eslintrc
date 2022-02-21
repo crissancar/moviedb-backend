@@ -2,7 +2,8 @@
     "env": {
         "browser": true,
         "es2021": true,
-        "node": true
+        "node": true,
+        "jest": true
     },
     "extends": [
         "standard",
@@ -19,6 +20,7 @@
     "rules": {
         "no-unused-vars": "off",
         "node/no-path-concat": "off",
-        "no-return-assign": "off"
+        "no-return-assign": "off",
+        "no-useless-constructor": "off"
     }
 }
