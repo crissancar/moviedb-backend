@@ -4,8 +4,8 @@ const common = [
 
 const moviedb_backend = [
     ...common,
-    'tests/features/**/*.feature',
-    '--require tests/features/step_definitions/*.steps.ts',
+    'tests/**/features/**/*.feature',
+    '--require tests/shared/features/step_definitions/*.steps.ts',
     '--publish-quiet'
 ].join(' ');
 
