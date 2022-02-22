@@ -3,7 +3,7 @@ import { glob } from 'glob';
 import path from 'path';
 
 export function registerRoutes(router: Router) {
-  const routes = glob.sync(path.join(__dirname, '../../**/*.route.*'));
+  const routes = glob.sync(path.join(__dirname, '../../**/**/*.route.*'));
   routes.map((route) => register(route, router));
 }
 
