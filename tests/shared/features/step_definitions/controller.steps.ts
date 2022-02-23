@@ -27,7 +27,6 @@ Then('the response should be empty', () => {
 
 BeforeAll(async () => {
   const environmentArranger: Promise<EnvironmentArranger> = container.get('Shared.EnvironmentArranger');
-  await (await environmentArranger).arrange();
   application = new MovieDBBackendApp();
   await application.start();
 });
