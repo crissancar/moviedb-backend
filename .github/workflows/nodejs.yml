@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         node-version: [12.x, 14.x]
-        mongodb-version: [3.6, 4.2]
+        mongodb-version: [4.2]
 
     env:
       TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
