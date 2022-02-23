@@ -6,7 +6,9 @@ import { Model } from 'mongoose';
 
 export class MongooseGenreRepository extends MongooseRepository<Genre> implements GenreRepository {
   async save(genre: Genre): Promise<void> {
-    await this.persist(genre.id.valueOf(), genre);
+    const id = genre.id.valueOf();
+
+    await this.persist(id, genre);
   }
 
   protected model(): Model<Genre> {
