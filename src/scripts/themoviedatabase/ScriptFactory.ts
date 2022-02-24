@@ -6,7 +6,8 @@ export class ScriptFactory {
 
   constructor(scriptName: string) {
     this.theMovieDatabaseGenresController = container.get('Genres.controllers.TheMovieDatabaseGenresController');
-    this.runScript(scriptName);
+
+    this.runScript(scriptName).then();
   }
 
   public async runScript(scriptName: string) {

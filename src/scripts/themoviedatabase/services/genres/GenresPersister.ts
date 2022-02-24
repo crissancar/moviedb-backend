@@ -1,5 +1,6 @@
 import { TMDBData } from '../../types/TMDBData';
 import { GenreCreator } from '../../../../modules/genres/services/GenreCreator';
+import { Uuid } from '../../../../modules/shared/uuid/Uuid';
 
 export class GenresPersister {
   private readonly genreCreator: GenreCreator;
@@ -10,13 +11,18 @@ export class GenresPersister {
 
   public async run(genresData: TMDBData): Promise<void> {
     genresData.map(async (genre: any, index) => {
-      const { id, name } = genre;
+      const id: string = Uuid.random().value;
+      const { name } = genre;
 
       await this.genreCreator.run({ id, name });
 
-      console.log(
-        `Loading genres data from api and persisting in the database... ${index + 1} of ${genresData.length}`
-      );
+      this.printInformation(index, genresData);
     });
+  }
+
+  private printInformation(index: number, genresData: Array<Object>) {
+    console.log(`Loading genres data from api and persisting in the database... ${index + 1} of ${genresData.length}`);
+
+    if (index + 1 === genresData.length) console.log('\n\n---->  Press CTRL-C to exit  <-----');
   }
 }

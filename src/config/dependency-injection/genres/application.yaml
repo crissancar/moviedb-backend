@@ -1,7 +1,7 @@
 services:
   Genres.controllers.TheMovieDatabaseGenresController:
     class: ../../../scripts/themoviedatabase/controllers/genres/TheMovieDatabaseGenresController
-    arguments: ["@Genres.services.GenresGetter", "@Genres.services.GenresModeler", "@Genres.services.GenresPersister"]
+    arguments: ["@Genres.services.GenresGetter", "@Genres.services.GenresPersister"]
 
   Genres.controllers.GenrePutController:
     class: ../../../modules/genres/controllers/GenrePutController
@@ -11,13 +11,9 @@ services:
     class: ../../../scripts/themoviedatabase/services/genres/GenresGetter
     arguments: []
 
-  Genres.services.GenresModeler:
-    class: ../../../scripts/themoviedatabase/services/genres/GenresModeler
-    arguments: []
-
   Genres.services.GenresPersister:
     class: ../../../scripts/themoviedatabase/services/genres/GenresPersister
-    arguments: ["@Genre.services.GenreCreator"]
+    arguments: ["@Genres.services.GenreCreator"]
 
   Genres.services.GenreCreator:
     class: ../../../modules/genres/services/GenreCreator
