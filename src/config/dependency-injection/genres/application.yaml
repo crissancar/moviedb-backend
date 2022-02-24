@@ -17,7 +17,7 @@ services:
 
   Genres.services.GenresPersister:
     class: ../../../scripts/themoviedatabase/services/genres/GenresPersister
-    arguments: ["@Genre.services.GenreCreator"]
+    arguments: ["@Genres.services.GenreCreator"]
 
   Genres.services.GenreCreator:
     class: ../../../modules/genres/services/GenreCreator
