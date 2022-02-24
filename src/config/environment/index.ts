@@ -27,7 +27,7 @@ const moviedbConfig = convict({
       doc: 'The Mongo connection URL',
       format: String,
       env: 'MONGO_URL',
-      default: 'mongodb://localhost:27017/mooc-backend-dev',
+      default: 'mongodb://localhost:27017/moviedb-backend-dev',
     },
   },
 });
