@@ -16,9 +16,13 @@ export class GenresPersister {
 
       await this.genreCreator.run({ id, name });
 
-      console.log(
-        `Loading genres data from api and persisting in the database... ${index + 1} of ${genresData.length}`
-      );
+      this.printInformation(index, genresData);
     });
+  }
+
+  private printInformation(index: number, genresData: Array<Object>) {
+    console.log(`Loading genres data from api and persisting in the database... ${index + 1} of ${genresData.length}`);
+
+    if (index + 1 === genresData.length) console.log('\n\n---->  Press CTRL-C to exit  <-----');
   }
 }
