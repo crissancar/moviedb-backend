@@ -1,5 +1,6 @@
 import { TMDBData } from '../../types/TMDBData';
 import { GenreCreator } from '../../../../modules/genres/services/GenreCreator';
+import { Uuid } from '../../../../modules/shared/uuid/Uuid';
 
 export class GenresPersister {
   private readonly genreCreator: GenreCreator;
@@ -10,7 +11,8 @@ export class GenresPersister {
 
   public async run(genresData: TMDBData): Promise<void> {
     genresData.map(async (genre: any, index) => {
-      const { id, name } = genre;
+      const id: string = Uuid.random().value;
+      const { name } = genre;
 
       await this.genreCreator.run({ id, name });
 
