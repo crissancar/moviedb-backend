@@ -6,4 +6,8 @@ export class Genre {
     this.id = id;
     this.name = name;
   }
+
+  static fromPlainData(plainData: { id: string; name: string }): Genre {
+    return new Genre(plainData.id, plainData.name);
+  }
 }
