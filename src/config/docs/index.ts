@@ -1,16 +1,12 @@
 import { createGenre, createGenreBody } from './genres/createGenre';
 import { healthCheck } from './status/healthCheck';
+import { findGenre, findGenreResponse } from './genres/findGenre';
 
 export const apiDocumentation = {
   openapi: '3.0.1',
   info: {
     version: '1.0.0',
     title: 'MovieDB REST API - Documentation',
-    contact: {
-      name: 'Cristian Sánchez',
-      email: 'cristiansanchezcarr@gmail.com',
-      url: 'https://github.com/crissancar',
-    },
   },
   servers: [
     {
@@ -33,6 +29,7 @@ export const apiDocumentation = {
     },
     'genres/{id}': {
       put: createGenre,
+      get: findGenre,
     },
   },
   components: {
@@ -45,6 +42,7 @@ export const apiDocumentation = {
     },
     schemas: {
       createGenreBody,
+      findGenreResponse,
     },
   },
 };
