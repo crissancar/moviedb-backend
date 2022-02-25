@@ -31,6 +31,7 @@ Then('the response content should be:', (response) => {
 
 BeforeAll(async () => {
   const environmentArranger: Promise<EnvironmentArranger> = container.get('Shared.EnvironmentArranger');
+  await (await environmentArranger).arrange();
   application = new MovieDBBackendApp();
   await application.start();
 });

@@ -14,16 +14,7 @@ export class MongooseEnvironmentArranger extends EnvironmentArranger {
   }
 
   protected async cleanDatabase(): Promise<void> {
-    const client = await this.client();
-    const collections = await this.collections();
-
-    for (const collection in collections) {
-      await client.dropCollection(collection);
-    }
-  }
-
-  private async collections(): Promise<MongooseCollections> {
-    return (await this._client).collections;
+    return (await this.client()).dropDatabase();
   }
 
   private async client(): Promise<MongooseClient> {
