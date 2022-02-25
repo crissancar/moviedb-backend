@@ -17,10 +17,25 @@ afterAll(async () => {
 
 describe('GenreRepository', () => {
   describe('#save', () => {
-    it('should save a course', async () => {
+    it('should save a genre', async () => {
       const genre = GenreMother.random();
 
       await repository.save(genre);
+    });
+  });
+
+  describe('#search', () => {
+    it('should return an existing genre', async () => {
+      const expectedGenre = GenreMother.random();
+      await repository.save(expectedGenre);
+
+      const findedGenre = await repository.search(expectedGenre.id);
+
+      expect(expectedGenre).toEqual(findedGenre);
+    });
+
+    it('should not return a non existing course', async () => {
+      expect(await repository.search(GenreMother.random().id)).toBeFalsy();
     });
   });
 });

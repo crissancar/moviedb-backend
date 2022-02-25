@@ -7,6 +7,10 @@ services:
     class: ../../../modules/genres/controllers/GenrePutController
     arguments: ["@Genres.services.GenreCreator"]
 
+  Genres.controllers.GenreGetController:
+    class: ../../../modules/genres/controllers/GenreGetController
+    arguments: ["@Genres.services.GenreFinder"]
+
   Genres.services.GenresGetter:
     class: ../../../scripts/themoviedatabase/services/genres/GenresGetter
     arguments: []
@@ -17,6 +21,10 @@ services:
 
   Genres.services.GenreCreator:
     class: ../../../modules/genres/services/GenreCreator
+    arguments: ["@Genre.repositories.GenreRepository"]
+
+  Genres.services.GenreFinder:
+    class: ../../../modules/genres/services/GenreFinder
     arguments: ["@Genre.repositories.GenreRepository"]
 
   Genre.repositories.GenreRepository:
