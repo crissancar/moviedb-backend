@@ -15,9 +15,10 @@
     "test:unit": "NODE_ENV=test jest",
     "test:features": "npm run test:moviedb:backend:features",
     "test:moviedb:backend:features": "NODE_ENV=test cucumber-js -p moviedb_backend",
-    "tmdb:all": "npm run tmdb:status && npm run tmdb:genres",
+    "tmdb:all": "npm run tmdb:status && npm run tmdb:genres && npm run tmdb:movies",
     "tmdb:status": "npm run build && node -e 'require(\"./dist/src/scripts/themoviedatabase/themoviedatabase.script.js\").status()'",
-    "tmdb:genres": "node -e 'require(\"./dist/src/scripts/themoviedatabase/themoviedatabase.script.js\").run(\"genres\")'"
+    "tmdb:genres": "npm run tmdb:status && node -e 'require(\"./dist/src/scripts/themoviedatabase/themoviedatabase.script.js\").run(\"genres\")'",
+    "tmdb:movies": "npm run tmdb:status && node -e 'require(\"./dist/src/scripts/themoviedatabase/themoviedatabase.script.js\").run(\"movies\")'"
   },
   "author": "Cristian Sánchez",
   "license": "ISC",
