@@ -10,7 +10,7 @@ export const apiDocumentation = {
   },
   servers: [
     {
-      url: 'http://localhost:5000/api/v1/docs',
+      url: 'http://localhost:5000',
       description: 'Local Server',
     },
     {
@@ -18,16 +18,11 @@ export const apiDocumentation = {
       description: 'Production Server',
     },
   ],
-  tags: [
-    {
-      name: 'Genres',
-    },
-  ],
   paths: {
-    status: {
+    '/status': {
       get: healthCheck,
     },
-    'genres/{id}': {
+    '/genres/{id}': {
       put: createGenre,
       get: findGenre,
     },
