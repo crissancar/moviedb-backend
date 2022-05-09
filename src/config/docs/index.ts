@@ -1,6 +1,8 @@
 import { createGenre, createGenreRequest } from './genres/createGenre';
 import { healthCheck } from './status/healthCheck';
 import { findGenre, findGenreResponse } from './genres/findGenre';
+import { createMovieFromTMDB, createMovieFromTMDBRequest } from './movies/createMovie';
+import { findMovie, findMovieResponse } from './movies/findMovie';
 
 export const apiDocumentation = {
   openapi: '3.0.1',
@@ -22,6 +24,10 @@ export const apiDocumentation = {
     '/status': {
       get: healthCheck,
     },
+    '/movies/{id}': {
+      put: createMovieFromTMDB,
+      get: findMovie,
+    },
     '/genres/{id}': {
       put: createGenre,
       get: findGenre,
@@ -36,6 +42,8 @@ export const apiDocumentation = {
       },
     },
     schemas: {
+      createMovieFromTMDBRequest,
+      findMovieResponse,
       createGenreRequest,
       findGenreResponse,
     },
