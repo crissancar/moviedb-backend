@@ -38,7 +38,7 @@ export const findGenreResponse = {
   properties: {
     id: {
       type: 'string',
-      example: '32d4c17e-c070-4456-a6be-31bc21cc264d',
+      example: '28',
     },
     name: {
       type: 'string',

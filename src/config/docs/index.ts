@@ -1,4 +1,4 @@
-import { createGenre, createGenreBody } from './genres/createGenre';
+import { createGenre, createGenreRequest } from './genres/createGenre';
 import { healthCheck } from './status/healthCheck';
 import { findGenre, findGenreResponse } from './genres/findGenre';
 
@@ -41,7 +41,7 @@ export const apiDocumentation = {
       },
     },
     schemas: {
-      createGenreBody,
+      createGenreRequest,
       findGenreResponse,
     },
   },

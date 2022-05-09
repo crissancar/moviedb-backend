@@ -20,7 +20,7 @@ export const createGenre = {
     content: {
       'application/json': {
         schema: {
-          $ref: '#/components/schemas/createGenreBody',
+          $ref: '#/components/schemas/createGenreRequest',
         },
       },
     },
@@ -33,7 +33,7 @@ export const createGenre = {
   },
 };
 
-export const createGenreBody = {
+export const createGenreRequest = {
   type: 'object',
   properties: {
     name: {
