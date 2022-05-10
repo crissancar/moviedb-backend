@@ -1,10 +1,10 @@
-import { MovieCreator } from '../../../../modules/movies/services/MovieCreator';
 import { TMDBData } from '../../types/TMDBData';
+import { MovieCreatorFromTMDB } from '../../../../modules/movies/services/MovieCreatorFromTMDB';
 
 export class MoviesPersister {
-  private readonly movieCreator: MovieCreator;
+  private readonly movieCreator: MovieCreatorFromTMDB;
 
-  constructor(movieCreator: MovieCreator) {
+  constructor(movieCreator: MovieCreatorFromTMDB) {
     this.movieCreator = movieCreator;
   }
 
