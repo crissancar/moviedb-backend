@@ -7,8 +7,12 @@ export class ScriptFactory {
   private theMovieDatabaseMoviesController: TheMovieDatabaseMoviesController;
 
   constructor(scriptName: string) {
-    this.theMovieDatabaseGenresController = container.get('Genres.controllers.TheMovieDatabaseGenresController');
-    this.theMovieDatabaseMoviesController = container.get('Movies.controllers.TheMovieDatabaseMoviesController');
+    this.theMovieDatabaseGenresController = container.get(
+      'TheMovieDatabase.Genres.controllers.TheMovieDatabaseGenresController'
+    );
+    this.theMovieDatabaseMoviesController = container.get(
+      'TheMovieDatabase.Movies.controllers.TheMovieDatabaseMoviesController'
+    );
 
     this.runScript(scriptName).then();
   }

@@ -1,0 +1,3 @@
+imports:
+  - { resource: ./genres/application.yaml }
+  - { resource: ./movies/application.yaml }
