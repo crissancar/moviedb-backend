@@ -31,6 +31,31 @@ export class Movie {
     this.poster_path = poster_path;
   }
 
+  static createMovie(
+    id: string,
+    title: string,
+    overview: string,
+    genre_ids: Array<string>,
+    release_date: string,
+    poster_path: string
+  ) {
+    return new Movie(id, title, overview, genre_ids, release_date, 0, 0, 0, poster_path);
+  }
+
+  static createMovieFromTMDB(
+    id: string,
+    title: string,
+    overview: string,
+    genre_ids: Array<string>,
+    release_date: string,
+    popularity: number,
+    vote_average: number,
+    vote_count: number,
+    poster_path: string
+  ) {
+    return new Movie(id, title, overview, genre_ids, release_date, popularity, vote_average, vote_count, poster_path);
+  }
+
   static fromPlainData(plainData: {
     id: string;
     title: string;
