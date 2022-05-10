@@ -6,15 +6,12 @@ export class MovieCreator {
   constructor(private repository: MovieRepository) {}
 
   async run(request: CreateMovieRequest): Promise<void> {
-    const movie = new Movie(
+    const movie = Movie.createMovie(
       request.id,
       request.title,
       request.overview,
       request.genre_ids,
       request.release_date,
-      request.popularity,
-      request.vote_average,
-      request.vote_count,
       request.poster_path
     );
 

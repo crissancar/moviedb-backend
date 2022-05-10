@@ -20,9 +20,9 @@ Feature: Find an existing movie
           "12"
       ],
       "release_date": "2022-03-30",
-      "popularity": 10135.117,
-      "vote_average": 7.7,
-      "vote_count": 1019,
+      "popularity": 0,
+      "vote_average": 0,
+      "vote_count": 0,
       "poster_path": "/sJiHVM0A3OXDVxl4Z6a7ihMPHfm.jpg"
     }
     """
