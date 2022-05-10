@@ -1,8 +1,4 @@
 services:
-  Movies.controllers.TheMovieDatabaseMoviesController:
-    class: ../../../scripts/themoviedatabase/controllers/movies/TheMovieDatabaseMoviesController
-    arguments: ["@Movies.services.MoviesGetter", "@Movies.services.MoviesModeler", "@Movies.services.MoviesPersister"]
-
   Movies.controllers.MoviePutController:
     class: ../../../modules/movies/controllers/MoviePutController
     arguments: [ "@Movies.services.MovieCreator" ]
@@ -11,25 +7,18 @@ services:
     class: ../../../modules/movies/controllers/MovieGetController
     arguments: [ "@Movies.services.MovieFinder" ]
 
-  Movies.services.MoviesGetter:
-    class: ../../../scripts/themoviedatabase/services/movies/MoviesGetter
-    arguments: [ ]
-
-  Movies.services.MoviesPersister:
-    class: ../../../scripts/themoviedatabase/services/movies/MoviesPersister
-    arguments: [ "@Movies.services.MovieCreator" ]
-
-  Movies.services.MoviesModeler:
-    class: ../../../scripts/themoviedatabase/services/movies/MoviesModeler
-
   Movies.services.MovieCreator:
     class: ../../../modules/movies/services/MovieCreator
-    arguments: [ "@Movie.repositories.MovieRepository" ]
+    arguments: [ "@Movies.repositories.MovieRepository" ]
+
+  Movies.services.MovieCreatorFromTMDB:
+    class: ../../../modules/movies/services/MovieCreatorFromTMDB
+    arguments: [ "@Movies.repositories.MovieRepository" ]
 
   Movies.services.MovieFinder:
     class: ../../../modules/movies/services/MovieFinder
-    arguments: [ "@Movie.repositories.MovieRepository" ]
+    arguments: [ "@Movies.repositories.MovieRepository" ]
 
-  Movie.repositories.MovieRepository:
+  Movies.repositories.MovieRepository:
     class: ../../../modules/movies/persistence/mongoose/MongooseMovieRepository
     arguments: [ '@Shared.ConnectionManager' ]

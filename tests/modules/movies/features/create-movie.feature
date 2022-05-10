@@ -17,9 +17,6 @@ Feature: Create a new movie
           "12"
       ],
       "release_date": "2022-03-30",
-      "popularity": 10135.117,
-      "vote_average": 7.7,
-      "vote_count": 1019,
       "poster_path": "/sJiHVM0A3OXDVxl4Z6a7ihMPHfm.jpg"
     }
     """

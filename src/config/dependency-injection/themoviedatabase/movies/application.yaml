@@ -1,0 +1,15 @@
+services:
+  TheMovieDatabase.Movies.controllers.TheMovieDatabaseMoviesController:
+    class: ../../../../scripts/themoviedatabase/controllers/movies/TheMovieDatabaseMoviesController
+    arguments: [ "@TheMovieDatabase.Movies.services.MoviesGetter", "@TheMovieDatabase.Movies.services.MoviesModeler", "@TheMovieDatabase.Movies.services.MoviesPersister" ]
+
+  TheMovieDatabase.Movies.services.MoviesGetter:
+    class: ../../../../scripts/themoviedatabase/services/movies/MoviesGetter
+    arguments: [ ]
+
+  TheMovieDatabase.Movies.services.MoviesPersister:
+    class: ../../../../scripts/themoviedatabase/services/movies/MoviesPersister
+    arguments: [ "@Movies.services.MovieCreatorFromTMDB" ]
+
+  TheMovieDatabase.Movies.services.MoviesModeler:
+    class: ../../../../scripts/themoviedatabase/services/movies/MoviesModeler

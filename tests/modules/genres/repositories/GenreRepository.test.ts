@@ -3,7 +3,7 @@ import container from '../../../../src/config/dependency-injection';
 import { EnvironmentArranger } from '../../../shared/arranger/EnvironmentArranger';
 import { GenreMother } from '../mothers/GenreMother';
 
-const repository: GenreRepository = container.get('Genre.repositories.GenreRepository');
+const repository: GenreRepository = container.get('Genres.repositories.GenreRepository');
 const environmentArranger: Promise<EnvironmentArranger> = container.get('Shared.EnvironmentArranger');
 
 beforeEach(async () => {

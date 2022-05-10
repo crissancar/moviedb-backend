@@ -1,0 +1,12 @@
+services:
+  TheMovieDatabase.Genres.controllers.TheMovieDatabaseGenresController:
+    class: ../../../../scripts/themoviedatabase/controllers/genres/TheMovieDatabaseGenresController
+    arguments: ["@TheMovieDatabase.Genres.services.GenresGetter", "@TheMovieDatabase.Genres.services.GenresPersister"]
+
+  TheMovieDatabase.Genres.services.GenresGetter:
+    class: ../../../../scripts/themoviedatabase/services/genres/GenresGetter
+    arguments: []
+
+  TheMovieDatabase.Genres.services.GenresPersister:
+    class: ../../../../scripts/themoviedatabase/services/genres/GenresPersister
+    arguments: ["@Genres.services.GenreCreator"]

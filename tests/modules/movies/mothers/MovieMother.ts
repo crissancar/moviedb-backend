@@ -5,9 +5,6 @@ import { CreateMovieRequest } from '../../../../src/modules/movies/dtos/CreateMo
 import { MovieOverviewMother } from './MovieOverviewMother';
 import { MovieGenreIdsMother } from './MovieGenreIdsMother';
 import { MovieReleaseDateMother } from './MovieReleaseDateMother';
-import { MoviePopularityMother } from './MoviePopularityMother';
-import { MovieVoteAverageMother } from './MovieVoteAverageMother';
-import { MovieVoteCountMother } from './MovieVoteCountMother';
 import { MoviePosterPathMother } from './MoviePosterPathMother';
 
 export class MovieMother {
@@ -17,12 +14,9 @@ export class MovieMother {
     overview: string,
     genre_ids: Array<string>,
     release_date: string,
-    popularity: number,
-    vote_averange: number,
-    vote_count: number,
     poster_path: string
   ) {
-    return new Movie(id, title, overview, genre_ids, release_date, popularity, vote_averange, vote_count, poster_path);
+    return Movie.createMovie(id, title, overview, genre_ids, release_date, poster_path);
   }
 
   static fromRequest(request: CreateMovieRequest): Movie {
@@ -32,9 +26,6 @@ export class MovieMother {
       request.overview,
       request.genre_ids,
       request.release_date,
-      request.popularity,
-      request.vote_average,
-      request.vote_count,
       request.poster_path
     );
   }
@@ -46,9 +37,6 @@ export class MovieMother {
       MovieOverviewMother.random(),
       MovieGenreIdsMother.random(),
       MovieReleaseDateMother.random(),
-      MoviePopularityMother.random(),
-      MovieVoteAverageMother.random(),
-      MovieVoteCountMother.random(),
       MoviePosterPathMother.random()
     );
   }

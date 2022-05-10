@@ -3,7 +3,7 @@ import container from '../../../../src/config/dependency-injection';
 import { EnvironmentArranger } from '../../../shared/arranger/EnvironmentArranger';
 import { MovieMother } from '../mothers/MovieMother';
 
-const repository: MovieRepository = container.get('Movie.repositories.MovieRepository');
+const repository: MovieRepository = container.get('Movies.repositories.MovieRepository');
 const environmentArranger: Promise<EnvironmentArranger> = container.get('Shared.EnvironmentArranger');
 
 beforeEach(async () => {
@@ -34,7 +34,7 @@ describe('MovieRepository', () => {
       expect(expectedMovie).toEqual(findedMovie);
     });
 
-    it('should not return a non existing course', async () => {
+    it('should not return a non existing movie', async () => {
       expect(await repository.search(MovieMother.random().id)).toBeFalsy();
     });
   });
